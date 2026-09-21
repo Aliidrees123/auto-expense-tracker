@@ -1,6 +1,9 @@
-def main():
-    print("Hello from auto-expense-tracker!")
+from fastapi import FastAPI
+from app.core.config import settings
+
+app = FastAPI()
 
 
-if __name__ == "__main__":
-    main()
+@app.get("/health")
+async def health_check():
+    return {"status": "Ok", "environment": settings.ENVIRONMENT}
