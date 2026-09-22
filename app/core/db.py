@@ -8,6 +8,6 @@ engine = create_engine(
         connect_args={"sslmode": "require"}
 )
 
-def get_session():
+def get_session() -> Generator[Session, None, None]:
     with Session(engine) as session:
         yield session
