@@ -5,6 +5,7 @@ class Settings(BaseSettings):
     PROJECT_NAME: str = "Auto Expense Tracker"
     ENVIRONMENT: str = "dev"
     DATABASE_URL: str
+    DATABASE_URL_POOLED: str
 
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
