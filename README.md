@@ -57,3 +57,26 @@ An end-to-end, zero-cost personal finance application hosted on AWS. The system 
    cd finance-tracker
    python -m venv .venv
    source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+---
+
+## 🧪 Running Tests
+
+Integration tests run against the Neon dev branch using credentials from `.env`. Each test wraps its database operations in a transaction that rolls back on completion, keeping the dev database clean.
+
+**Run unit tests:**
+```bash
+uv run pytest tests/unit
+```
+
+**Run integration tests:**
+```bash
+uv run pytest tests/integration
+```
+
+**Run all tests:**
+```bash
+uv run pytest
+```
+
+> Ensure `DATABASE_URL` is set in `.env` before running integration tests.
